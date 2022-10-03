@@ -4,7 +4,7 @@ const ChatBox = () => {
     return (
         <div className="wrapper">
             <div className="align-self-center">Header</div>
-            <div className="chat-area"></div>
+            <div className="chat-area">asdasd</div>
             <form action="" className="message-form">
                 <div className="form-holder">
                     <input type="text" className="message-input" />
