@@ -1,0 +1,23 @@
+.row {
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        div.chat-area {
+            min-width: 300px;
+            max-width: 300px;
+            min-height: 400px;
+            background-color: rgba(236, 194, 142, 0.103);
+        }
+        form.message-form {
+            .form-holder {
+                .message-input {
+                    min-width: 75%;
+                }
+                .submit {
+                    min-width: 25%;
+                }
+            }
+        }
+    }
+}
