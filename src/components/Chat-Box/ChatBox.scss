@@ -7,7 +7,7 @@
             min-width: 300px;
             max-width: 300px;
             min-height: 400px;
-            background-color: rgba(236, 194, 142, 0.103);
+            background-color: rgb(236, 194, 142);
         }
         form.message-form {
             .form-holder {
@@ -17,6 +17,28 @@
                 .submit {
                     min-width: 25%;
                 }
+            }
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #ccc;
+            color: white;
+            text-align: center;
+            p:first-child {
+                color: black;
+                float: left;
+            }
+            p:last-child {
+                color: red;
+                float: right;
+                cursor: pointer;
+            }
+            p:last-child:hover {
+                background-color: black;
+                color: white;
             }
         }
     }

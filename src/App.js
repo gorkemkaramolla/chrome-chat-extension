@@ -1,8 +1,11 @@
-import Welcome from "./components/Welcome/Welcome";
+import ThemeProvider from "./components/Contexts/ThemeContext";
+import AppWrapper from "./components/AppWrapper/AppWrapper";
 function App() {
     return (
         <div className="App">
-            <Welcome></Welcome>
+            <ThemeProvider>
+                <AppWrapper></AppWrapper>
+            </ThemeProvider>
         </div>
     );
 }

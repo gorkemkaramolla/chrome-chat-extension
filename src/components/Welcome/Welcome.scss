@@ -1,5 +1,10 @@
 .container {
-    min-width: 500px;
     display: flex;
     justify-content: center;
+    min-height: 100vh;
+}
+
+.dark {
+    background-color: rgb(77, 75, 75);
+    color: white;
 }
