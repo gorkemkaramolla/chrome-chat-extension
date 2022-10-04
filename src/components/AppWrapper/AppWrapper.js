@@ -1,15 +1,10 @@
 import { React } from "react";
 import { useTheme } from "../Contexts/ThemeContext";
-import Welcome from "../Welcome/Welcome";
+import "./AppWrapper.scss";
+import Todos from "../Todos/Todos";
 const AppWrapper = () => {
     const { colorTheme } = useTheme();
-    return (
-        <>
-            <div className={`container ${colorTheme}`}>
-                <Welcome></Welcome>
-            </div>
-        </>
-    );
+    return <Todos></Todos>;
 };
 
 export default AppWrapper;
