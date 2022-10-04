@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { createContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const ThemeContext = createContext();
+export const useTheme = () => {
+    return useContext(ThemeContext);
+};
 
 const ThemeProvider = ({ children }) => {
     const currentMode = localStorage.getItem("theme");

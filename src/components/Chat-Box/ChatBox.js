@@ -1,10 +1,8 @@
-import React from "react";
-import { useEffect } from "react";
-import { useContext } from "react";
-import { ThemeContext } from "../Contexts/ThemeContext";
+import { React, useEffect } from "react";
+import { useTheme } from "../Contexts/ThemeContext";
 import "./ChatBox.scss";
 const ChatBox = () => {
-    const { colorTheme, setColorTheme } = useContext(ThemeContext);
+    const { colorTheme, setColorTheme } = useTheme();
     useEffect(() => {
         localStorage.setItem("theme", colorTheme);
     }, [colorTheme]);

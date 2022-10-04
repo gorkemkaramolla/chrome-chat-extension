@@ -1,8 +1,8 @@
-import { React, useContext } from "react";
+import { React } from "react";
+import { useTheme } from "../Contexts/ThemeContext";
 import Welcome from "../Welcome/Welcome";
-import { ThemeContext } from "../Contexts/ThemeContext";
 const AppWrapper = () => {
-    const { colorTheme } = useContext(ThemeContext);
+    const { colorTheme } = useTheme();
     return (
         <>
             <div className={`container ${colorTheme}`}>
