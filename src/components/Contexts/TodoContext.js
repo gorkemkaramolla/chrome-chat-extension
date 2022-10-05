@@ -7,6 +7,8 @@ import { useChromeStorageLocal } from "use-chrome-storage";
 export const TodoContext = createContext();
 
 export const TodoContextProvider = ({ children }) => {
+    const [activeFilter, setActiveFilter] = useState("all");
+    const [activeLength, setActiveLength] = useState(0);
     const [todoList, setToDoList] = useState([
         {
             id: 1,
@@ -37,12 +39,21 @@ export const TodoContextProvider = ({ children }) => {
         });
         setToDoList(filtered_clone_todo);
     };
+    const clearCompleted = () => {
+        setToDoList((prev) => prev.filter((todo) => !todo.completed));
+    };
+
     const values = {
         todoList,
         setToDoList,
         addTodo,
         toggleToDo,
         deleteToDo,
+        clearCompleted,
+        activeFilter,
+        setActiveFilter,
+        setActiveLength,
+        activeLength,
     };
     return (
         <TodoContext.Provider value={values}>{children}</TodoContext.Provider>
