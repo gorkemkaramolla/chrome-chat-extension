@@ -1,4 +1,8 @@
-import { createContext, useContext, React, useState } from "react";
+/*global chrome*/
+
+import { createContext, useContext, React, useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { useChromeStorageLocal } from "use-chrome-storage";
 
 export const TodoContext = createContext();
 
@@ -10,10 +14,35 @@ export const TodoContextProvider = ({ children }) => {
             completed: true,
         },
     ]);
-
+    const addTodo = (text) => {
+        setToDoList((prev) => [
+            ...prev,
+            {
+                id: uuidv4(),
+                completed: false,
+                text,
+            },
+        ]);
+    };
+    const toggleToDo = (id) => {
+        const clone_todo = [...todoList];
+        const todoIndex = clone_todo.findIndex((todo) => todo.id === id);
+        let item = clone_todo[todoIndex];
+        item.completed = !item.completed;
+        setToDoList(clone_todo);
+    };
+    const deleteToDo = (id) => {
+        const filtered_clone_todo = todoList.filter((todo) => {
+            return todo.id !== id;
+        });
+        setToDoList(filtered_clone_todo);
+    };
     const values = {
         todoList,
         setToDoList,
+        addTodo,
+        toggleToDo,
+        deleteToDo,
     };
     return (
         <TodoContext.Provider value={values}>{children}</TodoContext.Provider>

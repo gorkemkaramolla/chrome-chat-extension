@@ -1,13 +1,20 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+/*global chrome*/
+
+import { Formik, Form, Field } from "formik";
 import React from "react";
 import validations from "./validations";
 import { useTodoContext } from "../../../Contexts/TodoContext";
+
 export const NewTodoForm = () => {
-    const { todoList, setToDoList } = useTodoContext();
+    const { todoList, addTodo } = useTodoContext();
     return (
         <Formik
             initialValues={{ todo: "" }}
-            onSubmit={(values, bag) => {}}
+            onSubmit={(values, bag) => {
+                console.log(todoList);
+                addTodo(values.todo);
+                bag.resetForm();
+            }}
             validationSchema={validations}
         >
             <Form>

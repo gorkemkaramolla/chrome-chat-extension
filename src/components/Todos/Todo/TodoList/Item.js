@@ -1,5 +1,7 @@
 import React from "react";
-const Items = ({ todo }) => {
+import { useTodoContext } from "../../../Contexts/TodoContext";
+const Items = ({ todoList, todo, setToDoList }) => {
+    const { toggleToDo, deleteToDo } = useTodoContext();
     return (
         <>
             <li className={todo.completed && "completed"}>
@@ -8,9 +10,17 @@ const Items = ({ todo }) => {
                         className="toggle"
                         type="checkbox"
                         checked={todo.completed}
+                        onChange={() => {
+                            toggleToDo(todo.id);
+                        }}
                     />
                     <label>{todo.text}</label>
-                    <button className="destroy"></button>
+                    <button
+                        onClick={() => {
+                            deleteToDo(todo.id);
+                        }}
+                        className="destroy"
+                    ></button>
                 </div>
             </li>
         </>
