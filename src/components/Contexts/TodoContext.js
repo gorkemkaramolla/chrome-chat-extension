@@ -16,8 +16,8 @@ export const TodoContextProvider = ({ children }) => {
             completed: true,
         },
     ]);
-    const addTodo = (text) => {
-        setToDoList((prev) => [
+    const addTodo = async (text) => {
+        await setToDoList((prev) => [
             ...prev,
             {
                 id: uuidv4(),
@@ -26,6 +26,9 @@ export const TodoContextProvider = ({ children }) => {
             },
         ]);
     };
+    useEffect(() => {
+        localStorage.setItem("todolist", JSON.stringify(todoList, null, 2));
+    }, [todoList]);
     const toggleToDo = (id) => {
         const clone_todo = [...todoList];
         const todoIndex = clone_todo.findIndex((todo) => todo.id === id);

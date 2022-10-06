@@ -11,7 +11,6 @@ export const NewTodoForm = () => {
         <Formik
             initialValues={{ todo: "" }}
             onSubmit={(values, bag) => {
-                console.log(todoList);
                 addTodo(values.todo);
                 bag.resetForm();
             }}

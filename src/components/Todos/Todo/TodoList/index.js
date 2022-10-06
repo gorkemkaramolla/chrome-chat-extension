@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Items from "./Item";
 import { useTodoContext } from "../../../Contexts/TodoContext";
 
 const TodoList = () => {
     const { todoList, setToDoList, toggleTodo, activeFilter, setActiveLength } =
         useTodoContext();
-    console.log();
+
+    useEffect(() => {
+        console.log(localStorage.getItem("todolist"));
+        async function init() {
+            const data = await localStorage.getItem("todolist");
+            setToDoList(JSON.parse(data));
+        }
+        init();
+    }, []);
     let filteredList = todoList;
 
     activeFilter !== "all" &&
